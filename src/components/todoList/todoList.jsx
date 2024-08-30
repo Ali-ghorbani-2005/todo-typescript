@@ -1,4 +1,4 @@
-import { useTodoContext } from "../../context/todos.context";
+
 import { TodosItem } from "./todoItem/todoItem";
 
 export function TodosList() {
@@ -13,14 +13,6 @@ export function TodosList() {
         <div className="space-y-2">
           {todos &&
             todos.map((todo) => <TodosItem key={todo.id} todo={todo} />)}
-        </div>
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Finished Todos</h2>
-        <div className="space-y-2">
-          {doneTodos &&
-            doneTodos.map((todo) => <TodosItem key={todo.id} todo={todo} />)}
         </div>
       </div>
     </div>

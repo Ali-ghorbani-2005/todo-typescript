@@ -5,10 +5,11 @@ import { useGetTodos } from "../hooks/useGetTodos";
 import { useSubmitTodo } from "../hooks/useSubmitTodo";
 import { useMutation } from "@tanstack/react-query";
 import { queryClient } from "../lib/reactQueryConfig";
-import { deleteTodoItem } from "../hooks/deleteTodo";
-import { editTodoItem } from "../hooks/editTodo";
+import { deleteTodoItem } from "../api/deleteTodo";
+import { editTodoItem } from "../api/editTodo"; 
 
-const todosContext = createContext<TodoContextType | null>(null);
+
+export const todosContext = createContext<TodoContextType | null>(null);
 
 export function TodoProvider() {
   const { data: todos } = useGetTodos();
@@ -45,9 +46,10 @@ export function TodoProvider() {
     editMutation.mutate(todo);
   }
 
-  return (
+  return ( 
     <todosContext.Provider value={{ todos, onSubmit, deleteTodo, editTodo }}>
-      <TodoPanel />
+      <TodoPanel /> 
     </todosContext.Provider>
   );
 }
+
